@@ -33,7 +33,8 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'nombre_imagen'); ?>
-		<?php echo $form->textField($model,'nombre_imagen',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/banner/'.$model->nombre_imagen,"nombre_imagen",array("width"=>200)); ?>  
+		<?php //echo $form->textField($model,'nombre_imagen',array('size'=>60,'maxlength'=>128)); ?>
 	</div>
 
 	<div class="row buttons">

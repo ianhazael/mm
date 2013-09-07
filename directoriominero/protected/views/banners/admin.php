@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Banners', 'url'=>array('index')),
-	array('label'=>'Create Banners', 'url'=>array('create')),
+	array('label'=>'Listado de Banners', 'url'=>array('index')),
+	array('label'=>'Crear Banner', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Banners</h1>
+<h1>Administrar Banners</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -40,6 +40,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
+
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'banners-grid',
 	'dataProvider'=>$model->search(),
@@ -47,7 +48,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'tamano',
-		'tipo',
+		/*'tipo',*/
+		array(
+			'name'=> 'tipo',
+			'header'=>'Tipo',
+			'value'=>function($model){
+				switch($model->tipo){
+				case 1:
+					$tipo = "Destacado";
+					break;
+				case 2:
+					$tipo = "Normal";
+					break;
+				default:
+					$tipo = "normal";
+					break;
+				}
+            	return $tipo;
+        	},
+		),
 		'liga_banner',
 		'nombre_imagen',
 		array(

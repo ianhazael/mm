@@ -70,8 +70,16 @@ class BannersController extends Controller
 		if(isset($_POST['Banners']))
 		{
 			$model->attributes=$_POST['Banners'];
+			
+			$uploadedFile=CUploadedFile::getInstance($model,'nombre_imagen');
+            $fileName = "{$uploadedFile}";  
+            $model->nombre_imagen = $fileName;
+			
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				{
+	                $uploadedFile->saveAs(Yii::app()->basePath.'/../images/banner/'.$fileName);  // image will uplode to rootDirectory/banner/
+					$this->redirect(array('view','id'=>$model->id));
+				}
 		}
 
 		$this->render('create',array(
@@ -93,9 +101,23 @@ class BannersController extends Controller
 
 		if(isset($_POST['Banners']))
 		{
+            $_POST['Banner']['nombre_imagen'] = $model->nombre_imagen;
 			$model->attributes=$_POST['Banners'];
+            $uploadedFile=CUploadedFile::getInstance($model,'nombre_imagen');
+			
+			$fileName = "{$uploadedFile}";  
+			if(!empty($fileName))
+	            $model->nombre_imagen = $fileName;
+			
+			
 			if($model->save())
+			{
+				if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../images/banner/'.$model->nombre_imagen);
+                }
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

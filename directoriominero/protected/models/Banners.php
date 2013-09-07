@@ -30,11 +30,14 @@ class Banners extends CActiveRecord
 		return array(
 			array('tamano', 'required'),
 			array('tamano', 'length', 'max'=>9),
-			array('tipo', 'length', 'max'=>2),
+			array('tipo', 'length', 'max'=>9),
 			array('liga_banner, nombre_imagen', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, tamano, tipo, liga_banner, nombre_imagen', 'safe', 'on'=>'search'),
+			array('nombre_imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'insert,update'), // this will allow empty field when page is update (remember here i create scenario update)
+			array('nombre_imagen', 'length', 'max'=>255, 'on'=>'insert,update'),
+
 		);
 	}
 

@@ -21,9 +21,22 @@
 	<?php echo CHtml::encode($data->liga_banner); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre_imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->nombre_imagen); ?>
+	<b> <?php //echo CHtml::encode($data->getAttributeLabel('nombre_imagen')); ?></b>
+    	<?php if(!empty($data->nombre_imagen)) { ?>
+        	<?php 
+				$sizes = preg_split('/x/',$data->tamano);
+				if(count($sizes)>0)
+					$width = $sizes[0];
+				else
+					$width = 200;
+				$imghtml = CHtml::image(Yii::app()->request->baseUrl.'/images/banner/'.$data->nombre_imagen,"nombre_imagen",array("width"=>$width)); 
+				echo CHtml::link($imghtml, array('view', 'id'=>$data->id))
+			?>  
+        <?php } else { ?>    
+		<?php echo CHtml::encode($data->nombre_imagen); ?>
+        <?php } ?>    
 	<br />
+    
 
 
 </div>

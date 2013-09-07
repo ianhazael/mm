@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Banners', 'url'=>array('create')),
-	array('label'=>'Manage Banners', 'url'=>array('admin')),
+	array('label'=>'Crear Banner', 'url'=>array('create')),
+	array('label'=>'Administrar Banners', 'url'=>array('admin')),
 );
 ?>
 
