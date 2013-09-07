@@ -66,6 +66,9 @@
     <body class="home blog">
         <div id="shadow-wrapper">
             <div class="shell">
+                <div id="BannersTop">
+                    <?php echo $this->renderPartial('/site/_banners'); ?>
+                </div>            
                 <div id="LogoArea">
                     <div class="cl"> </div>
                     <h1 class="LogoText">Directorio Minero México</h1>
