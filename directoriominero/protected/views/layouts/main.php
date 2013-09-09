@@ -64,47 +64,63 @@
         </style>
     </head>
     <body class="home blog">
-        <div id="shadow-wrapper">
-            <div class="shell">
-                <div id="BannersTop">
-                    <?php echo $this->renderPartial('/site/_banners'); ?>
-                </div>            
-                <div id="LogoArea">
-                    <div class="cl"> </div>
-                    <h1 class="LogoText">Directorio Minero México</h1>
-                    <div class="c1"><a href="/"><img src="http://www.directoriominero.mx/header-pagina.png" border="0" alt="** PLEASE DESCRIBE THIS IMAGE **" /></a></div>
-                    <div class="c2"></div>
-                </div>
-                <!-- Header -->
-                <div id="header">
-                    <div class="cl"> </div>
-                    <!-- Navigation -->
-                    <div id="navigation">
-                        <ul>
-                            <li><a href="/"><span>Home</span></a></li>
-                            <li><a id="nav-0" href="/index.php?r=mineras/index" class=""><span>Mineras</span></a></li>
-                            <li><a id="nav-1" href="/index.php?r=proveedores/index" class=""><span>Proveedores</span></a></li>
-                            <li><a id="nav-2" href="/?page_id=1" class=""><span>Anexar listado</span></a></li>
-                        </ul>
+    
+    <table cellpadding="0" cellspacing="0">
+    	<tr>
+        <td style="width:320px; padding-left:10px; padding-top:250px;" valign="top">
+        	<div id="bannerLeft">
+				<?php echo $this->renderPartial('/site/_bannersLateral'); ?>
+            </div>
+        </td>   
+        <td style="width:970px; padding-left:10px;" valign="top">
+                <div id="shadow-wrapper">
+                <div class="shell">
+                    <div id="BannersTop">
+                        <?php echo $this->renderPartial('/site/_banners'); ?>
+                    </div>            
+                    <div id="LogoArea">
+                        <div class="cl"> </div>
+                        <h1 class="LogoText">Directorio Minero México</h1>
+                        <div class="c1"><a href="/"><img src="http://www.directoriominero.mx/header-pagina.png" border="0" alt="** PLEASE DESCRIBE THIS IMAGE **" /></a></div>
+                        <div class="c2"></div>
                     </div>
-                    <!-- END Navigation -->
+                    <!-- Header -->
+                    <div id="header">
+                        <div class="cl"> </div>
+                        <!-- Navigation -->
+                        <div id="navigation">
+                            <ul>
+                                <li><a href="/"><span>Home</span></a></li>
+                                <li><a id="nav-0" href="/index.php?r=mineras/index" class=""><span>Mineras</span></a></li>
+                                <li><a id="nav-1" href="/index.php?r=proveedores/index" class=""><span>Proveedores</span></a></li>
+                                <li><a id="nav-2" href="/?page_id=1" class=""><span>Anexar listado</span></a></li>
+                            </ul>
+                        </div>
+                        <!-- END Navigation -->
+                        <div class="cl"> </div>
+                    </div>
+                    <!-- END Header -->
                     <div class="cl"> </div>
-                </div>
-                <!-- END Header -->
-                <div class="cl"> </div>
-                <!-- Content -->
-                <div id="content">
-
-					<?php echo $content; ?>
-                   
-                </div>
+                    <!-- Content -->
+                    <div id="content">
+    
+                        <?php echo $content; ?>
+                       
+                    </div>
+                    
+                    <!-- END Content -->
+                    <!-- Footer -->
+                    <p class="foottext"><small> Copyright <?php echo date("Y"); ?>. Directorio Minero es una publicación de INSETEC S.A. de C.V. <a href="/sitemap.xml" title="Directory Site Map">Site Map</a> </p>
+                    <!-- END Footer --></div>
                 
-                <!-- END Content -->
-                <!-- Footer -->
-                <p class="foottext"><small> Copyright <?php echo date("Y"); ?>. Directorio Minero es una publicación de INSETEC S.A. de C.V. <a href="/sitemap.xml" title="Directory Site Map">Site Map</a> </p>
-                <!-- END Footer --></div>
-            
-            <br /></div>
-        <!-- END Shadow Wrapper -->
+                <br /></div>
+            <!-- END Shadow Wrapper -->
+        </td>
+        <td style="width:320px; padding-left:10px; padding-top:250px;" valign="top">
+        	<div id="bannerRight">
+                <?php echo $this->renderPartial('/site/_bannersLateral', array('id'=>1)); ?>
+            </div>
+        </td>
+	</table>
     </body>
 </html>
